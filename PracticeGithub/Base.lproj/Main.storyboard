@@ -101,10 +101,29 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Repository name" id="sDe-29-KXa"/>
+                    <connections>
+                        <segue destination="dzX-Mt-HQd" kind="presentation" identifier="IssueDetail" id="UFP-IC-awf"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TLN-Qp-OPV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1765" y="116"/>
+            <point key="canvasLocation" x="1781" y="116"/>
+        </scene>
+        <!--Issue-->
+        <scene sceneID="YjL-9E-B1n">
+            <objects>
+                <viewController id="3h5-kL-2WN" customClass="IssueDetailViewController" customModule="PracticeGithub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WEs-Zj-Kk3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="t5V-l9-7qc"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Issue" id="XvZ-cg-LoM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zTH-SR-4wy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3426.0869565217395" y="115.84821428571428"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jtj-zF-A5s">
@@ -123,6 +142,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B3A-YN-qdj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="115.84821428571428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="VDK-75-j2t">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dzX-Mt-HQd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="yOW-sR-Rzj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3h5-kL-2WN" kind="relationship" relationship="rootViewController" id="rSG-XN-3Db"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tpr-l6-d00" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2515.9420289855075" y="115.84821428571428"/>
         </scene>
     </scenes>
 </document>

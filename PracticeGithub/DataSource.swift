@@ -29,12 +29,36 @@ class DataSource {
         let url = URL(string: URLString)
         let repo = Repository(url: URLString, name: url!.lastPathComponent)
         self.store.createRepository(repository: repo) { (index, error) in
-            self.didSaveRepository(repository: repo, atIndex: index)
+            self.didSaveRepository(repo, atIndex: index)
             completion?(index, error)
         }
     }
     
-    func didSaveRepository(repository: Repository, atIndex index:Int) {
-        repositories.insert(repository, at: index)
+    private func didSaveRepository(_ repository: Repository, atIndex index:Int) {
+        self.repositories.insert(repository, at: index)
     }
+    
+    func deleteRepository(_ repository: Repository, completion: ((Error?) -> Void)?) {
+        self.store.deleteRepository(repository: repository) { (error) in
+            if let index = self.repositories.firstIndex(where: { (rep) -> Bool in
+                return rep.url == repository.url
+            }) {
+                self.repositories.remove(at: index)
+            }
+            completion?(error)
+        }
+    }
+    
+    func updateRepository(_ repository: Repository, completion: ((Error?) -> Void)?) {
+        if let index = self.repositories.firstIndex(where: { (rep) -> Bool in
+            return rep.url == repository.url
+        }) {
+            self.store.updateRepository(repository: repository) { (error) in
+                self.repositories[index] = repository                
+                completion?(error)
+            }
+        }
+        
+    }
+    
 }

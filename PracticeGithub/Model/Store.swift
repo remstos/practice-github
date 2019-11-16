@@ -17,7 +17,7 @@ protocol Store {
     func deleteRepository(repository: Repository, completion: ErrorCompletionBlock)
 }
 
-// Test data
+// Test data - In Memory store
 class TestStore: Store {
     
     var store = ["Repositories":
@@ -36,10 +36,14 @@ class TestStore: Store {
         completion(0, nil)
     }
     
-    func updateRepository(repository: Repository, completion: (Error?) -> Void) {
-        if let index = store["Repositories"]?.firstIndex(where: { (repo) -> Bool in
+    private func indexForRepository(_ repository: Repository) -> Int? {
+        return store["Repositories"]?.firstIndex(where: { (repo) -> Bool in
             return repo.url == repository.url
-        }) {
+        })
+    }
+    
+    func updateRepository(repository: Repository, completion: (Error?) -> Void) {
+        if let index = self.indexForRepository(repository) {
             store["Repositories"]![index] = repository
             completion(nil)
         } else {
@@ -50,10 +54,12 @@ class TestStore: Store {
     }
     
     func deleteRepository(repository: Repository, completion: (Error?) -> Void) {
-        store["Repositories"]?.removeAll(where: { (repo) -> Bool in
-            return repo.url == repository.url
-        })
-        completion(nil)
+        if let index = self.indexForRepository(repository) {
+            store["Repositories"]?.remove(at: index)
+            completion(nil)
+        } else {
+            completion(NSError(domain: "Couldn't find repository to delete", code: 1, userInfo: nil))
+        }
     }
 }
 

@@ -22,7 +22,7 @@ class RepositoriesListViewController: UIViewController, UITableViewDelegate, UIT
         self.loadData()
     }
     
-    func loadData() {
+    private func loadData() {
         self.dataSource.loadRepositories { (error) in
             self.tableView.reloadData()
         }
@@ -65,8 +65,20 @@ class RepositoriesListViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     // MARK: - Table View Delegate
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            let repo = self.dataSource.repositories[indexPath.row]
+            self.dataSource.deleteRepository(repo) { (error) in
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+        }
+    }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         self.performSegue(withIdentifier: "RepositoryDetail", sender: tableView.cellForRow(at: indexPath))
     }
     
@@ -76,7 +88,7 @@ class RepositoriesListViewController: UIViewController, UITableViewDelegate, UIT
             segue.identifier == "RepositoryDetail" {
             
             let selectedRepo = self.dataSource.repositories[selectedIndex.row]
-            controller.repository = selectedRepo
+            controller.setupWithRepository(repository:selectedRepo)
         }
     }
 }

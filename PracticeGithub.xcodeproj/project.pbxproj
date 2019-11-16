@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13B6FCA8237CBD70006EBA47 /* IssuesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B6FCA7237CBD70006EBA47 /* IssuesListViewController.swift */; };
 		13B6FCAA237CBFFA006EBA47 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B6FCA9237CBFFA006EBA47 /* Issue.swift */; };
 		13BA8B1A237CB09E00161DCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BA8B19237CB09E00161DCD /* AppDelegate.swift */; };
 		13BA8B1C237CB09E00161DCD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BA8B1B237CB09E00161DCD /* SceneDelegate.swift */; };
@@ -19,6 +18,9 @@
 		13BA8B3D237CB11B00161DCD /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BA8B3C237CB11B00161DCD /* Repository.swift */; };
 		13D43762237F080E005329ED /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D43761237F080E005329ED /* DataSource.swift */; };
 		13D43764237F0C76005329ED /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D43763237F0C76005329ED /* Store.swift */; };
+		13D4376923803A89005329ED /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D4376823803A89005329ED /* NetworkManager.swift */; };
+		13D4376B23803BBE005329ED /* IssuesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D4376A23803BBE005329ED /* IssuesListViewController.swift */; };
+		13D4376D2380444F005329ED /* IssueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D4376C2380444F005329ED /* IssueDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +34,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		13B6FCA7237CBD70006EBA47 /* IssuesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IssuesListViewController.swift; path = PracticeGithub/IssuesListViewController.swift; sourceTree = SOURCE_ROOT; };
 		13B6FCA9237CBFFA006EBA47 /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		13BA8B16237CB09E00161DCD /* PracticeGithub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeGithub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13BA8B19237CB09E00161DCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +49,9 @@
 		13BA8B3C237CB11B00161DCD /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		13D43761237F080E005329ED /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataSource.swift; path = PracticeGithub/DataSource.swift; sourceTree = SOURCE_ROOT; };
 		13D43763237F0C76005329ED /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		13D4376823803A89005329ED /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = PracticeGithub/Model/NetworkManager.swift; sourceTree = SOURCE_ROOT; };
+		13D4376A23803BBE005329ED /* IssuesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuesListViewController.swift; sourceTree = "<group>"; };
+		13D4376C2380444F005329ED /* IssueDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,8 +95,7 @@
 			children = (
 				13BA8B19237CB09E00161DCD /* AppDelegate.swift */,
 				13BA8B1B237CB09E00161DCD /* SceneDelegate.swift */,
-				13BA8B1D237CB09E00161DCD /* RepositoriesListViewController.swift */,
-				13B6FCA7237CBD70006EBA47 /* IssuesListViewController.swift */,
+				13D43767238039D3005329ED /* Controllers */,
 				13BA8B3B237CB0DA00161DCD /* Model */,
 				13BA8B1F237CB09E00161DCD /* Main.storyboard */,
 				13BA8B22237CB0A900161DCD /* Assets.xcassets */,
@@ -114,12 +117,23 @@
 		13BA8B3B237CB0DA00161DCD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				13D43763237F0C76005329ED /* Store.swift */,
 				13D43761237F080E005329ED /* DataSource.swift */,
+				13D4376823803A89005329ED /* NetworkManager.swift */,
+				13D43763237F0C76005329ED /* Store.swift */,
 				13BA8B3C237CB11B00161DCD /* Repository.swift */,
 				13B6FCA9237CBFFA006EBA47 /* Issue.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		13D43767238039D3005329ED /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				13BA8B1D237CB09E00161DCD /* RepositoriesListViewController.swift */,
+				13D4376A23803BBE005329ED /* IssuesListViewController.swift */,
+				13D4376C2380444F005329ED /* IssueDetailViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,12 +237,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13D4376923803A89005329ED /* NetworkManager.swift in Sources */,
 				13D43764237F0C76005329ED /* Store.swift in Sources */,
 				13D43762237F080E005329ED /* DataSource.swift in Sources */,
 				13BA8B1E237CB09E00161DCD /* RepositoriesListViewController.swift in Sources */,
 				13B6FCAA237CBFFA006EBA47 /* Issue.swift in Sources */,
+				13D4376D2380444F005329ED /* IssueDetailViewController.swift in Sources */,
 				13BA8B3D237CB11B00161DCD /* Repository.swift in Sources */,
-				13B6FCA8237CBD70006EBA47 /* IssuesListViewController.swift in Sources */,
+				13D4376B23803BBE005329ED /* IssuesListViewController.swift in Sources */,
 				13BA8B1A237CB09E00161DCD /* AppDelegate.swift in Sources */,
 				13BA8B1C237CB09E00161DCD /* SceneDelegate.swift in Sources */,
 			);

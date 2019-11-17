@@ -9,12 +9,17 @@
 import Foundation
 
 
-class NetworkManager {
+/**
+ Handling network request for a repository.
+ 
+ Subclass for different hosting provider (Github, Bitbucket, ..).
+ */
+class RepositoryNetworkManager {
     internal var repository :Repository!
 
-    class func networkManagerForRepository(_ repository: Repository) -> NetworkManager {
+    class func networkManagerForRepository(_ repository: Repository) -> RepositoryNetworkManager {
         // return the right network manager from the repo url.
-        return TestNetworkManager(withRepository:repository)
+        return TestRepositoryNetworkManager(withRepository:repository)
     }
     
     init(withRepository: Repository) {
@@ -38,9 +43,9 @@ class NetworkManager {
     }
 }
 
-// Mark: - Test data
-// No networking
-class TestNetworkManager : NetworkManager {
+// MARK: - Test data
+/// Mocking data
+class TestRepositoryNetworkManager : RepositoryNetworkManager {
     
     override func fetchIssues(withCompletion completion: (([Issue], Error?) -> Void)?) {        
         completion?([
@@ -51,8 +56,9 @@ class TestNetworkManager : NetworkManager {
     }
 }
 
-// Mark: - Github
-class GithubNetworkManager : NetworkManager {
+// MARK: - Github
+/// Handling network communication for Github repositories
+class GithubNetworkManager : RepositoryNetworkManager {
     
     override func urlToFetchIssues() -> URL? {
         return URL(string: self.repository.url)

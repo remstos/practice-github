@@ -15,7 +15,7 @@ class IssuesListViewController: UITableViewController, UISearchControllerDelegat
     private var issues: [Issue] = []
     private var displayedIssues: [Issue] = []
     
-    private var networkManager: NetworkManager?
+    private var networkManager: RepositoryNetworkManager?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +62,7 @@ class IssuesListViewController: UITableViewController, UISearchControllerDelegat
     
     func setupWithRepository(repository: Repository) {
         self.repository = repository;
-        self.networkManager = NetworkManager.networkManagerForRepository(repository)
+        self.networkManager = RepositoryNetworkManager.networkManagerForRepository(repository)
         self.loadIssues()
     }
 

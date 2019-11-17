@@ -11,7 +11,11 @@ import UIKit
 class RepositoriesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // Data
-    var dataSource = DataSource(withStore: UserDefaultsStore())
+    var dataSource = DataSource(withStore:
+        CoreDataStore()
+//        UserDefaultsStore()
+//        TestStore()
+    )
     
     // Views
     @IBOutlet weak var tableView: UITableView!

@@ -37,3 +37,5 @@ $ git clone https://github.com/kemcake/practice-github.git
 - Add logging for Storage and Networking events
 - UnitTests of Storage and Networking architecture
 - Better UI / design.
+- More documentation, and more explanation of the architecture.
+- Better readme.

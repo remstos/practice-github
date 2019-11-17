@@ -28,7 +28,12 @@ $ git clone https://github.com/kemcake/practice-github.git
 
 
 ## What's included
-Work in progress.
+- Manage a list of Github repositories added from the url.
+- List the current open issues for a repository.
+- Simple text search through the issues.
 
-## One more thing
-Thanks for reading this.
+## What could be improved
+- Verify that the url entered by the user is a correct github repo
+- Add logging for Storage and Networking events
+- UnitTests of Storage and Networking architecture
+- Better UI / design.

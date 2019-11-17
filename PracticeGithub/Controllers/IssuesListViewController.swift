@@ -36,10 +36,10 @@ class IssuesListViewController: UITableViewController, UISearchControllerDelegat
             return;
         }
         self.networkManager?.fetchIssues(withCompletion: { (issues, error) in
-            guard error == nil else {
+            guard error == nil || issues != nil else {
                 return self.showAlertFromError(error!)
             }
-            self.issues = issues
+            self.issues = issues!
             self.updateDisplayedIssuesForSearchTerm(nil)
             self.tableView.reloadData()
         })

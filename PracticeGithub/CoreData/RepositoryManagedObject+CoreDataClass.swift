@@ -23,14 +23,16 @@ public class RepositoryManagedObject: NSManagedObject {
     
     @NSManaged public var url: String?
     @NSManaged public var name: String?
+    @NSManaged public var username: String?
 
     func setValuesFromRepository(_ repository: Repository) {
         self.url = repository.url
         self.name = repository.name
+        self.username = repository.username
     }
     
     func converToStruct() -> Repository {
-        return Repository(url: self.url!, name: self.name!)
+        return Repository(url: self.url!, name: self.name!, username: self.username!)
     }
 
 }

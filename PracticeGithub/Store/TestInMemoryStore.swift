@@ -13,9 +13,9 @@ class TestInMemoryStore: Store {
     
     var inMemoryStorage = ["Repositories":
         [
-            Repository(url: "github.com/january", name: "January"),
-            Repository(url: "github.com/april", name: "April"),
-            Repository(url: "github.com/yellow", name: "Yellow-Fork")
+            Repository(fromUrl: "github.com/january"),
+            Repository(fromUrl: "github.com/april"),
+            Repository(fromUrl: "github.com/yellow")
         ]
     ]
    

@@ -26,8 +26,7 @@ class DataSource {
     }
     
     func addRepositoryFromURL(URL URLString:String, completion: ((Int, Error?) -> Void)?) {
-        let url = URL(string: URLString)
-        let repo = Repository(url: URLString, name: url!.lastPathComponent)
+        let repo = Repository(fromUrl: URLString)
         self.store.createRepository(repository: repo) { (index, error) in
             self.didSaveRepository(repo, atIndex: index)
             completion?(index, error)

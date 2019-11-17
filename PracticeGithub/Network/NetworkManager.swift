@@ -19,7 +19,12 @@ class RepositoryNetworkManager {
 
     class func networkManagerForRepository(_ repository: Repository) -> RepositoryNetworkManager {
         // return the right network manager from the repo url.
-        return TestRepositoryNetworkManager(withRepository:repository)
+        if (repository.url.contains("github.com")) {
+            return GithubNetworkManager(withRepository: repository)
+        } else {
+            // implement more hosting providers.
+            return TestRepositoryNetworkManager(withRepository:repository)
+        }
     }
     
     init(withRepository: Repository) {
@@ -30,7 +35,7 @@ class RepositoryNetworkManager {
         return URL(string: "override-this")
     }
     
-    internal func fetchIssues(withCompletion completion: (([Issue], Error?) -> Void)) {
+    internal func fetchIssues(withCompletion completion: @escaping (([Issue]?, Error?) -> Void)) {
         guard let url = self.urlToFetchIssues() else {
             completion([], nil)//Error(description: "url not found"))
             return
@@ -47,7 +52,7 @@ class RepositoryNetworkManager {
 /// Mocking data
 class TestRepositoryNetworkManager : RepositoryNetworkManager {
     
-    override func fetchIssues(withCompletion completion: (([Issue], Error?) -> Void)) {
+    override func fetchIssues(withCompletion completion: @escaping (([Issue]?, Error?) -> Void)) {
         completion([
             Issue(title: "Issue #1"),
             Issue(title: "Issue #2"),

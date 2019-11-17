@@ -63,7 +63,7 @@ class RepositoriesListViewController: UIViewController, UITableViewDelegate, UIT
         let repo = self.dataSource.repositories[indexPath.row]
         let cell = tableView .dequeueReusableCell(withIdentifier: "RepoCell", for: indexPath)
         
-        cell.textLabel?.text = repo.name
+        cell.textLabel?.text = repo.name.capitalized
 
         return cell
     }

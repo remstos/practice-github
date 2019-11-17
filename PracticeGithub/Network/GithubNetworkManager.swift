@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 /// Handling network communication for Github repositories
 class GithubNetworkManager : RepositoryNetworkManager {
@@ -17,7 +18,9 @@ class GithubNetworkManager : RepositoryNetworkManager {
     
     override func fetchIssues(withCompletion completion: (([Issue], Error?) -> Void)) {
         
-        
-        completion([])
+        AF.request("https://httpbin.org/get").response { response in
+            debugPrint(response)
+        }
+        completion([], nil)
     }
 }

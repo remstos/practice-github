@@ -32,14 +32,14 @@ class RepositoryNetworkManager {
     
     internal func fetchIssues(withCompletion completion: (([Issue], Error?) -> Void)) {
         guard let url = self.urlToFetchIssues() else {
-            completion?([], nil)//Error(description: "url not found"))
+            completion([], nil)//Error(description: "url not found"))
             return
         }
         
         // do some network fetching
         print("fetching issues from: \(url)")
         let issues: [Issue] = []
-        completion?(issues, nil)
+        completion(issues, nil)
     }
 }
 

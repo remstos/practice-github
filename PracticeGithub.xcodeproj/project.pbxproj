@@ -12,6 +12,7 @@
 		136098F12381E6660062F38A /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136098F02381E6660062F38A /* CoreDataStore.swift */; };
 		136098F32381E6AF0062F38A /* TestInMemoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136098F22381E6AF0062F38A /* TestInMemoryStore.swift */; };
 		136098F52381E6CB0062F38A /* UserDefaultsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136098F42381E6CB0062F38A /* UserDefaultsStore.swift */; };
+		136098F92381E9A30062F38A /* GithubNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136098F82381E9A30062F38A /* GithubNetworkManager.swift */; };
 		13B6FCAA237CBFFA006EBA47 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B6FCA9237CBFFA006EBA47 /* Issue.swift */; };
 		13BA8B1A237CB09E00161DCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BA8B19237CB09E00161DCD /* AppDelegate.swift */; };
 		13BA8B1C237CB09E00161DCD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BA8B1B237CB09E00161DCD /* SceneDelegate.swift */; };
@@ -44,6 +45,7 @@
 		136098F02381E6660062F38A /* CoreDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
 		136098F22381E6AF0062F38A /* TestInMemoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestInMemoryStore.swift; sourceTree = "<group>"; };
 		136098F42381E6CB0062F38A /* UserDefaultsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStore.swift; sourceTree = "<group>"; };
+		136098F82381E9A30062F38A /* GithubNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubNetworkManager.swift; sourceTree = "<group>"; };
 		13B6FCA9237CBFFA006EBA47 /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		13BA8B16237CB09E00161DCD /* PracticeGithub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeGithub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13BA8B19237CB09E00161DCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,7 +61,7 @@
 		13BA8B3C237CB11B00161DCD /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		13D43761237F080E005329ED /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataSource.swift; path = PracticeGithub/DataSource.swift; sourceTree = SOURCE_ROOT; };
 		13D43763237F0C76005329ED /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
-		13D4376823803A89005329ED /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = PracticeGithub/Model/NetworkManager.swift; sourceTree = SOURCE_ROOT; };
+		13D4376823803A89005329ED /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = PracticeGithub/Network/NetworkManager.swift; sourceTree = SOURCE_ROOT; };
 		13D4376A23803BBE005329ED /* IssuesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuesListViewController.swift; sourceTree = "<group>"; };
 		13D4376C2380444F005329ED /* IssueDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +94,25 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		136098F62381E9460062F38A /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				13D43763237F0C76005329ED /* Store.swift */,
+				136098F22381E6AF0062F38A /* TestInMemoryStore.swift */,
+				136098F42381E6CB0062F38A /* UserDefaultsStore.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		136098F72381E95E0062F38A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				13D4376823803A89005329ED /* NetworkManager.swift */,
+				136098F82381E9A30062F38A /* GithubNetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		13BA8B0D237CB09E00161DCD = {
 			isa = PBXGroup;
 			children = (
@@ -115,7 +136,10 @@
 			children = (
 				13BA8B19237CB09E00161DCD /* AppDelegate.swift */,
 				13BA8B1B237CB09E00161DCD /* SceneDelegate.swift */,
+				13D43761237F080E005329ED /* DataSource.swift */,
 				13D43767238039D3005329ED /* Controllers */,
+				136098F62381E9460062F38A /* Store */,
+				136098F72381E95E0062F38A /* Network */,
 				13BA8B3B237CB0DA00161DCD /* Model */,
 				136098C5238087E80062F38A /* CoreData */,
 				13BA8B1F237CB09E00161DCD /* Main.storyboard */,
@@ -138,11 +162,6 @@
 		13BA8B3B237CB0DA00161DCD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				13D43761237F080E005329ED /* DataSource.swift */,
-				13D4376823803A89005329ED /* NetworkManager.swift */,
-				13D43763237F0C76005329ED /* Store.swift */,
-				136098F22381E6AF0062F38A /* TestInMemoryStore.swift */,
-				136098F42381E6CB0062F38A /* UserDefaultsStore.swift */,
 				13BA8B3C237CB11B00161DCD /* Repository.swift */,
 				13B6FCA9237CBFFA006EBA47 /* Issue.swift */,
 			);
@@ -273,6 +292,7 @@
 				13D4376B23803BBE005329ED /* IssuesListViewController.swift in Sources */,
 				136098F52381E6CB0062F38A /* UserDefaultsStore.swift in Sources */,
 				136098F32381E6AF0062F38A /* TestInMemoryStore.swift in Sources */,
+				136098F92381E9A30062F38A /* GithubNetworkManager.swift in Sources */,
 				13BA8B1A237CB09E00161DCD /* AppDelegate.swift in Sources */,
 				13BA8B1C237CB09E00161DCD /* SceneDelegate.swift in Sources */,
 			);

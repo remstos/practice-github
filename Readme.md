@@ -17,7 +17,7 @@ Before you begin, you should already have the Xcode downloaded and set up correc
 
 1. Download the project source. You can do this either by cloning the repository 
 ```
-$ git clone https://github.com/kemcake/practice-github.git
+$ git clone https://github.com/remstos/practice-github.git
 ```
 
 2. Navigate to the unzipped folder and run `pod install`.
@@ -36,6 +36,7 @@ $ git clone https://github.com/kemcake/practice-github.git
 - Verify that the url entered by the user is a correct github repo
 - Add logging for Storage and Networking events
 - UnitTests of Storage and Networking architecture
+- Structure the Model / Network layer in a framework  
 - Better UI / design.
 - More documentation, and more explanation of the architecture.
 - Better readme.
